@@ -7,36 +7,8 @@ export class MainTour {
     /**
     *Add new Buss 
     */
-    addTour(Tour: ITOURDOCUMENT) {
-        return new TourSchema(Tour).save();
-    }
-    /**
-    *Get single Tour 
-    */
-    getTour(_id: string) {
-        return TourSchema.findById(_id);
+    saveTour(tour: any) {
+        return {};
     }
 
-    /**
-    *Get All Tour 
-    */
-    getAllTour() {
-        return TourSchema.find();
-    }
-
-    /**
-    *Delete Tour 
-    */
-    deleteTour(id: string) {
-        return TourSchema.findByIdAndDelete(id);
-    }
-
-    /**
-    *Update Tour 
-    */
-    updateTour(Tour: ITOURDOCUMENT) {
-        return TourSchema.findByIdAndUpdate(Tour._id, Tour, {
-            new: true
-        });
-    }
 }
