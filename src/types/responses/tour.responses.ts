@@ -1,4 +1,4 @@
-// Add Tours Response Interface
+// Register Tour response
 export interface ITourResponse {
     TourDestinations: Array<string>;
     TourDate: Date;
@@ -7,41 +7,11 @@ export interface ITourResponse {
 }
 
 /**
- *  Single Bus interface 
+ * Single Bus interface 
+ * Used when populating Tour Alloted busses
  */
 interface ISingleBUSS {
     _id: string;
     BussName: string;
     BussSeats: number;
-}
-
-
-export interface IGetTourResponse {
-    _id: string;
-    participants: string;
-    bookingDate: string;
-    destination: string;
-    person: string;
-    createdAt?: Date | any;
-    updatedAt?: Date | any
-}
-
-export interface IUpdateTourResponse {
-    _id: string;
-    participants: string;
-    bookingDate: string;
-    destination: string;
-    person: string;
-    createdAt?: Date | any;
-    updatedAt?: Date | any
-}
-
-export interface IAllTourResponse {
-    _id: string;
-    participants: string;
-    bookingDate: string;
-    destination: string;
-    person: string;
-    createdAt?: Date | any;
-    updatedAt?: Date | any
 }
