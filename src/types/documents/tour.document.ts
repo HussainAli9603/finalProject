@@ -1,10 +1,10 @@
-import { Document, Schema } from "mongoose";
+import { Document } from "mongoose";
 export interface ITOURDOCUMENT extends Document {
     _id: string;
-    Destinations: Array<string>;
-    Date: Date;
-    Participants: number;
-    Phone: string;
-    Name: string;
-    BusAlloted: Array<string>
+    TourDestinations: Array<string>;
+    TourDate: Date;
+    TourParticipants: number;
+    TourRegistrarPhone: string;
+    TourRegistrarName: string;
+    BussesAlloted: Array<string>
 }
