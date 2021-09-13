@@ -3,7 +3,7 @@ import { MainTour } from '../repositories/tour.repositories';
 import { MainBus } from '../repositories/buss.repositories';
 import ErrorHandler from '../utills/error';
 import { Get, Route, Tags, Post, Body, Path, Put, Delete, SuccessResponse, Security, Request } from "tsoa";
-import { ITourResponse, IGetTourResponse, IUpdateTourResponse, IAllTourResponse } from '../types/responses/tour.responses';
+import { ITourResponse } from '../types/responses/tour.responses';
 import { ITourRequest } from '../types/requests/tour.request';
 
 
@@ -13,9 +13,9 @@ import { ITourRequest } from '../types/requests/tour.request';
 export class TourController {
     constructor() { }
 
-    @Post('/registerTour')
+    @Post('/addtour')
     @SuccessResponse(200, 'Tour registered successfully')
-    async saveTour(@Body() tours: any): Promise<any> {
+    async saveTour(@Body() tours: ITourRequest): Promise<any> {
         var date: any;
         date = new Date(tours.Date);
 
@@ -24,7 +24,7 @@ export class TourController {
             var alloted_busses = this.AllotBusses(available_busses, tours.Participants);
             console.log(alloted_busses);
 
-            const registeredTour: any = await new MainTour().addTour(tours);
+            const registeredTour: any = await new MainTour().saveTour(tours);
             if (!registeredTour)
                 throw new ErrorHandler(400, 'Cannot register tour');
             return <ITourResponse>registeredTour;
